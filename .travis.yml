@@ -1,5 +1,6 @@
 language: php
 sudo: false
+services: redis-server
 
 php:
   - 7.1
@@ -22,7 +23,8 @@ matrix:
       env: TEST_SUITE=PHP_CodeSniffer
 
 before_script:
-  - composer install
+  - composer self-update
+  - composer install --no-interaction --prefer-source --dev
 
 script:
   - test ${TEST_SUITE} == "PHP_CodeSniffer" || ./vendor/bin/phpunit tests/

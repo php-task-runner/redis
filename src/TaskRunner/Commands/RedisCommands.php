@@ -15,9 +15,9 @@ class RedisCommands extends AbstractCommands {
   /**
    * Flushes the Redis backend.
    *
-   * @command redis:flush
+   * @command redis:flush-all
    */
-  public function flush(): void {
+  public function flushAll(): void {
     $parameters = array_filter([
       'host' => getenv('REDIS_HOST'),
       'port' => getenv('REDIS_PORT'),
