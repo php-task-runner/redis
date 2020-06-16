@@ -24,7 +24,7 @@ matrix:
 
 before_script:
   - composer self-update
-  - composer install --no-interaction --prefer-source --dev
+  - composer install --no-interaction --prefer-source
 
 script:
   - test ${TEST_SUITE} == "PHP_CodeSniffer" || ./vendor/bin/phpunit tests/
