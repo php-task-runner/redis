@@ -5,4 +5,4 @@ https://github.com/openeuropa/task-runner).
 
 ## Commands
 
-* `redis:flush`: Flush all Redis storage.
+* `redis:flush-all`: Flush all Redis storage.
