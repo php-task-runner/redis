@@ -17,17 +17,19 @@ jobs:
         # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          --health-interval 30s
+          --health-timeout 10s
+          --health-retries 10
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: php-actions/composer@v5
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: php-actions/composer@v5
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v2
         env:
-          REDIS_HOST: localhost
+          REDIS_HOST: redis
           REDIS_PORT: "6379"
           REDIS_PASSWORD: ""
         with:
